@@ -1,0 +1,47 @@
+
+public class Customer {
+    private String firstName;
+    private String lastName;
+    private Account acct[];
+    private int numOfAccount;
+    
+    
+    public Customer(){
+        this("", "");
+    }
+    public Customer(String firstName, String lastName){
+        acct = new Account[5];
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
+    }
+    
+    public void setFirstName(String firstName){
+        this.firstName = firstName;
+    }
+    public String getFirstName(){
+        return this.firstName;
+    }
+    public void setLastName(String lastName){
+        this.lastName = lastName;
+    }
+    public String getLastName(){
+        return this.lastName;
+    }
+    public void addAccount(Account acct){
+        this.acct[this.numOfAccount] = acct;
+        this.numOfAccount ++;
+    }
+    public Account getAccount(int index){
+        return acct[index];
+    }
+    public int getNumOfAccount(){
+        return this.numOfAccount;
+    }
+    @Override
+    public String toString(){
+        return this.getFirstName() + " " +this.getLastName() + " has " + this.getNumOfAccount() + " accounts.";
+    }
+    public boolean equals(Customer c){
+        return (this.firstName.equals(c.firstName))&&(this.lastName.equals(c.lastName));
+    }
+}
